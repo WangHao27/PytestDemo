@@ -15,7 +15,7 @@ TEST_REPORT = os.path.join(BASE_DIR, "report")
 # 测试报告路径
 TESTCASES_DIR = os.path.join(BASE_DIR, "report/html")
 
-
+#生成报告
 if __name__ == "__main__":
     print('开始生成测试报告'.center(45, '*'))
     os.system('pytest ' + '--alluredir=' + TEST_REPORT)
