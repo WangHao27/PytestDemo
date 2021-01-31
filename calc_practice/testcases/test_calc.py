@@ -27,7 +27,7 @@ class TestCalcutor:
     def teardown_class(self):
         print("用例执行结束")
 
-    @pytest.mark.parametrize("a,b,expect", add_datas)
+    @pytest.mark.parametrize("a,b,expect", add_datas, ids=myid)
     def test_add(self, a, b, expect):
         #调用加法
         result = self.calc.add(a, b)
