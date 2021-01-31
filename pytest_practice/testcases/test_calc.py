@@ -5,12 +5,14 @@
 @File ：test_calc.py
 """
 import allure
+import pytest
 
 
 @allure.feature("计算器测试")
 class TestCalcutor:
 
     @allure.story("测试加法")
+    @pytest.mark.run(order=2)  #pytest-ordering插件,自定义排序为最先执行
     def test_add(self, get_calc, get_add_datas):
         # 步骤说明
         with allure.step("计算两个数的和"):
@@ -20,6 +22,7 @@ class TestCalcutor:
         assert result == get_add_datas[2]
 
     @allure.story("测试除法")
+    @pytest.mark.run(order=7)
     def test_div(self, get_calc, get_div_datas):
         # 步骤说明
         with allure.step("计算两个数相除"):
@@ -29,6 +32,7 @@ class TestCalcutor:
         assert result == get_div_datas[2]
 
     @allure.story("测试减法")
+    @pytest.mark.run(order=3)
     def test_sub(self, get_calc, get_sub_datas):
         # 步骤说明
         with allure.step("计算两个数的差"):
@@ -38,6 +42,7 @@ class TestCalcutor:
         assert result == get_sub_datas[2]
 
     @allure.story("测试乘法")
+    @pytest.mark.run(order=5)
     def test_mul(self, get_calc, get_mul_datas):
         # 步骤说明
         with allure.step("计算两个数的乘积"):
